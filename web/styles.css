@@ -1,0 +1,196 @@
+body {
+    background: rgba(54, 56, 63, 0.6901960784313725);
+}
+
+.flex {
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.project {
+    margin: 0 0 3em 0;
+}
+
+.flex-justify-center {
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.flex-item {
+    -webkit-flex: auto;
+    flex: auto;
+    box-sizing: border-box;
+}
+
+@media print,
+screen {
+    .flex-sm-12 {
+        -webkit-flex: 0 1 100%;
+        flex: 0 1 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+@media print,
+screen and (min-width: 768px) {
+    .flex-md-3 {
+        -webkit-flex: 0 1 33.33333%;
+        flex: 0 1 33.33333%;
+        max-width: 33.33333%;
+        width: 33.33333%;
+    }
+}
+
+@media print and (orientation: landscape),
+screen and (min-width: 1024px) {
+    .flex-lg-2 {
+        -webkit-flex: 0 1 16.6666666667%;
+        flex: 0 1 16.6666666667%;
+        max-width: 16.6666666667%;
+        width: 16.6666666667%;
+    }
+}
+
+.tile {
+    margin: 0.5em 0;
+    text-align: center;
+    padding: 0;
+    color: #333;
+
+}
+
+.tile-wrapper {
+    margin: 10px;
+    border-radius: 10px;
+    padding: 0.5em 0 0;
+    height: 100%;
+    height: calc(100% - 1em);
+
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right
+}
+
+.clear {
+    clear: both;
+}
+
+.startedon {
+    padding: 0.5em 0;
+}
+
+.avatar {
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    width: 2em;
+    height: 2em;
+}
+
+.status {
+    font-size: 2.5em;
+    margin: 0.25em 0;
+}
+
+.bottom-wrapper,
+.branch {
+    padding: 0 0.3em;
+}
+
+.branch {
+
+    text-transform: uppercase;
+}
+
+.status-running a,
+.status-running a:hover,
+.status-skipped a,
+.status-skipped a:hover,
+.status-canceled a,
+.status-canceled a:hover,
+.status-pending a,
+.status-pending a:hover {
+    color: #333333b0;
+}
+
+
+
+.status-running {
+    background-color: #cdb62c;
+
+}
+
+.status-success {
+    background-color: #35a764;
+    color: #fff
+}
+
+.status-failed {
+    background-color: #db4545;
+    color: #fff
+}
+
+.status-pending {
+    background-color: #f1f1f1;
+}
+
+.status-skipped {
+    background-color: #f1f1f1;
+}
+
+.status-canceled {
+    background-color: #f1f1f1;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+h5 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0.25em 0;
+}
+
+.duration {
+    font-size: 0.85em
+}
+
+.status a {
+    text-decoration: none;
+}
+
+.status-success a,
+.status-failed a,
+.status-success a:hover,
+.status-failed a:hover {
+    color: #fff
+}
+
+h2 {
+    margin: 0.8em 0 0;
+}
+
+h2,
+h2 a {
+    text-decoration: none;
+    color: #fff
+}
+
+h2 a:hover,
+.status a:hover {
+    text-decoration: underline;
+}

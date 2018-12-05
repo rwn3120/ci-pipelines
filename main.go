@@ -260,7 +260,11 @@ func main() {
 		}
 		w.Write(body)
 	}
+	fs := http.FileServer(http.Dir("/web"))
+
+	http.Handle("/web/", http.StripPrefix("/web/", fs))
 	http.HandleFunc("/", handler)
+	
 	go http.ListenAndServe(addr, nil)
 
 	for _, csvInput := range csvInputs {
