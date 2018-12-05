@@ -153,20 +153,25 @@ func getProject(client *gitlab.Client, namespace, name string, branches ...strin
 		return project
 	}
 	// get pipelines
-	pipelines, err := client.GetPipelines(project.ID, branches...)
+	pipelinesMap, err := client.GetPipelines(project.ID, branches...)
 	// propagate error to project
 	project.Error = getError(err)
 	if project.Error != nil {
 		return project
 	}
 	// sort branches
-	keys := make([]string, 0, len(pipelines))
-	for key := range pipelines {
+	keys := make([]string, 0, len(pipelinesMap))
+	for key := range pipelinesMap {
 		keys = append(keys, key)
 	}
 	sort.Strings(keys)
 	for _, key := range keys {
-		branch := Branch{Name: key, Pipelines: pipelines[key]}
+		pipelines := []Pipeline{}
+		for _, pipeline := range pipelinesMap[key] {
+			pipelineURL := strings.Join([]string{project.URL, "pipelines", strconv.Itoa(pipeline.ID)}, "/")
+			pipelines = append(pipelines, Pipeline{pipeline, pipelineURL})
+		}
+		branch := Branch{Name: key, Pipelines: pipelines}
 		project.Branches = append(project.Branches, branch)
 	}
 	return project
