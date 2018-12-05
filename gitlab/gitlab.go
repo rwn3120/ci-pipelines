@@ -98,7 +98,7 @@ func (c *Client) GetProject(namespace, name string) (Project, error) {
 		fmt.Println("Cached", len(c.cachedProjects), "projects")
 		cachedProject, found = c.cachedProjects[nameWithNamespace]
 		if !found {
-			return unknownProject(namespace, name), fmt.Errorf("Project %s does not exists", nameWithNamespace)
+			return unknownProject(namespace, name), fmt.Errorf("Project %s does not exist", nameWithNamespace)
 		}
 	}
 	return cachedProject, nil
