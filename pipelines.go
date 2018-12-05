@@ -12,9 +12,14 @@ const (
 	resetStyle = "\033[0m"
 )
 
+type Pipeline struct {
+	gitlab.Pipeline
+	URL string `json:"url"`
+}
+
 type Branch struct {
-	Name      string            `json:"branch"`
-	Pipelines []gitlab.Pipeline `json:"pipelines"`
+	Name      string     `json:"branch"`
+	Pipelines []Pipeline `json:"pipelines"`
 }
 
 type Project struct {
